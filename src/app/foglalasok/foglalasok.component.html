@@ -1,0 +1,46 @@
+<div class="main-body">
+<mat-form-field>
+    <mat-label>Foglalások listázása</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort matSortStart="desc">
+
+      <ng-container matColumnDef="datum">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header matSortStart="desc"> Dátum </th>
+        <td mat-cell *matCellDef="let row"> {{row.datum | date:'YYYY.MM.dd'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nev">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Név </th>
+        <td mat-cell *matCellDef="let row"> {{row.nev}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Létszám </th>
+        <td mat-cell *matCellDef="let row"> {{row.fo}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="cim">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Helyszín </th>
+        <td mat-cell *matCellDef="let row"> {{row.cim}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="iranyitoszam">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Irányítószám </th>
+        <td mat-cell *matCellDef="let row"> {{row.iranyitoszam}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+    
+  </div>
+</div>
+  
+  

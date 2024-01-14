@@ -1,0 +1,42 @@
+
+<form class="foglalas-form" [formGroup]="foglalasForm" (ngSubmit)="onFormSubmit()">
+<div class="inputForm">
+ 
+        <mat-form-field appearance="outline">
+          <mat-label>Név</mat-label>
+          <input matInput type="text" placeholder="Név" formControlName="nev">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cím</mat-label>
+            <input matInput type="text" placeholder="Cím" formControlName="cim">
+        </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Irányítószám</mat-label>
+            <input matInput type="number" placeholder="Irányítószám" formControlName="iranyitoszam">
+          </mat-form-field>
+
+          <mat-form-field>
+           
+            <input matInput [matDatepicker]="picker" formControlName="datum">
+            
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>          
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Fő</mat-label>
+            <input matInput type="number" formControlName="fo">
+          </mat-form-field>
+
+          <div class="actions">
+            <button mat-flat-button color="black" type="submit">Küldés</button>
+        </div>
+
+
+
+
+</div>
+</form>
+
